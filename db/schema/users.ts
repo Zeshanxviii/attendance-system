@@ -1,4 +1,6 @@
-import { integer, pgTable, varchar } from "drizzle-orm/pg-core";
+import { integer, pgEnum, pgTable, varchar } from "drizzle-orm/pg-core";
+
+export const roleEnum = pgEnum("role", ["student", "teacher"]);
 
 export const usersTable = pgTable(
   "users",
@@ -8,6 +10,7 @@ export const usersTable = pgTable(
     age: integer().notNull(),
     email: varchar({ length: 255 }).notNull().unique(),
     password: varchar({ length: 255 }).notNull(),
+    role: roleEnum().notNull(),
   },
   (table) => ({
     schema: "public", // explicitly assign schema

@@ -33,5 +33,13 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 # Finder (MacOS) folder config
 .DS_Store
 
-/private.key
-/public.key
+
+# drizzle-orm meta files
+/drizzle.config.ts
+drizzle
+/drizzle
+drizzle/meta/*.json
+drizzle/*
+drizzle/meta/_journal.json
+drizzle/meta/_journal.json
+drizzle/meta/_journal.json
