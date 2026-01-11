@@ -7,12 +7,11 @@ import jwt from "jsonwebtoken"
 export const signUpHandler = async (req: Request) => {
   try {
     const body = await req.json();
-    const { name, email, password, age, role } = body as {
+    const { name, email, password, age } = body as {
       name: string;
       email: string;
       password: string;
       age: number;
-      role: 'student' | 'teacher';
     };
 
     if (!name || !email || !password || !age) {
@@ -37,7 +36,6 @@ export const signUpHandler = async (req: Request) => {
       email,
       password: hashedPassword,
       age,
-      role,
     });
 
     return new Response(JSON.stringify({ message: "User created successfully" }), { status: 201 });
