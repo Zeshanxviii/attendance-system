@@ -1,10 +1,6 @@
 import { EventEmitter } from "events";
 import type { ServerWebSocket } from "bun";
 
-// ============================================
-// TYPES & INTERFACES
-// ============================================
-
 interface User {
     id: string;
     email: string;

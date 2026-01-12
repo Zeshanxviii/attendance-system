@@ -38,6 +38,7 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 # Drizzle
 drizzle/
 
+
 /drizzle.config.ts
 drizzle
 /drizzle
@@ -46,3 +47,7 @@ drizzle/*
 drizzle/meta/_journal.json
 drizzle/meta/_journal.json
 drizzle/meta/_journal.json
+
+
+private.key
+public.key
