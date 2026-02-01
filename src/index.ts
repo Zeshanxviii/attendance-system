@@ -1,17 +1,13 @@
 import { EventEmitter } from "events";
 import type { ServerWebSocket } from "bun";
-import { drizzle } from 'drizzle-orm/node-postgres';
-import { loginHandler, signUpHandler } from "./routes/auth/auth";
-import { createRoomController } from "./routes/room/room";
-import { AttendanceManager, setupAttendanceWebSocket } from "./services/attendance-manager/manager";
-import type { WebSocketData } from "./services/attendance-manager/manager";
+import { db } from "./db/index";
+import { loginHandler, signUpHandler } from "./modules/auth/auth.controller";
+import { createRoomController } from "./modules/room/room.controller";
+import { AttendanceManager, setupAttendanceWebSocket } from "./modules/attendance/attendance.manager";
+import type { WebSocketData } from "./modules/attendance/attendance.manager";
+import { attendanceManager, eventBus } from "./instances";
 
-export const db = drizzle(process.env.DATABASE_URL!);
-
-// create event bus before wiring websocket
-export const eventBus = new EventEmitter();
-export const attendanceManager = new AttendanceManager(eventBus);
-eventBus.setMaxListeners(50);
+// db is imported from ./db/index, eventBus and attendanceManager from ./instances
 
 // simple in-memory user lookup for WebSocket auth (replace with real lookup)
 const users = new Map<string, any>([

@@ -1,10 +1,10 @@
 {
   "name": "attendance-system",
-  "module": "index.ts",
+  "module": "src/index.ts",
   "type": "module",
   "scripts": {
     "clean": "rm -rf dist && echo 'Done.'",
-    "dev": "bun index.ts"
+    "dev": "bun src/index.ts"
   },
   "private": true,
   "devDependencies": {

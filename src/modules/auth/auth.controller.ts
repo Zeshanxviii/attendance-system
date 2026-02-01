@@ -1,4 +1,4 @@
-import { db } from "../../index";
+import { db } from "../../db/index";
 import { usersTable } from "../../db/schema/users";
 import { eq } from "drizzle-orm";
 import * as bcrypt from "bcrypt";
